@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>InfoMA - SOF International Mathematics Olympiad</title>
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --accent-color: #e74c3c;
+            --light-bg: #f8f9fa;
+            --border-color: #a2a9b1;
+            --text-color: #202122;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            margin: 0;
+            padding: 0;
+            background-color: #f6f6f6;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background-color: white;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        header {
+            background-color: var(--primary-color);
+            padding: 1em;
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo {
+            font-size: 2em;
+            font-weight: bold;
+            color: white;
+            letter-spacing: 1px;
+        }
+        .logo span {
+            color: var(--secondary-color);
+        }
+        .tagline {
+            font-style: italic;
+            font-size: 0.9em;
+            opacity: 0.8;
+        }
+        nav {
+            background-color: var(--primary-color);
+            padding: 0.5em 1em;
+            border-bottom: 3px solid var(--secondary-color);
+        }
+        nav ul {
+            display: flex;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        nav li {
+            margin-right: 1.5em;
+            position: relative;
+        }
+        nav li:after {
+            content: "•";
+            position: absolute;
+            right: -0.8em;
+            color: rgba(255,255,255,0.5);
+        }
+        nav li:last-child:after {
+            display: none;
+        }
+        nav a {
+            text-decoration: none;
+            color: white;
+            font-weight: 500;
+            padding: 0.3em 0;
+            transition: all 0.3s ease;
+        }
+        nav a:hover {
+            color: var(--secondary-color);
+            border-bottom: 2px solid var(--secondary-color);
+        }
+        .content {
+            display: flex;
+            padding: 1em;
+        }
+        main {
+            flex: 3;
+            padding-right: 2em;
+        }
+        aside {
+            flex: 1;
+            padding-left: 1em;
+            border-left: 1px solid var(--border-color);
+        }
+        h1 {
+            font-size: 1.8em;
+            border-bottom: 2px solid var(--secondary-color);
+            padding-bottom: 0.3em;
+            color: var(--primary-color);
+        }
+        h2 {
+            font-size: 1.5em;
+            border-bottom: 1px solid var(--border-color);
+            color: var(--primary-color);
+            padding-bottom: 0.2em;
+            margin-top: 1.5em;
+        }
+        h3 {
+            font-size: 1.2em;
+            color: var(--primary-color);
+        }
+        .infobox {
+            border: 1px solid var(--border-color);
+            background-color: var(--light-bg);
+            padding: 0.5em;
+            font-size: 0.9em;
+            margin-bottom: 1em;
+            border-radius: 3px;
+        }
+        .infobox-title {
+            background-color: var(--secondary-color);
+            color: white;
+            text-align: center;
+            font-weight: bold;
+            padding: 0.5em;
+            margin: -0.5em -0.5em 0.5em -0.5em;
+            border-radius: 3px 3px 0 0;
+        }
+        .infobox-image {
+            text-align: center;
+            margin: 0.5em 0;
+        }
+        .infobox-image img {
+            max-width: 100%;
+            border-radius: 3px;
+        }
+        .infobox-data {
+            display: table;
+            width: 100%;
+        }
+        .infobox-label {
+            display: table-cell;
+            vertical-align: top;
+            font-weight: bold;
+            width: 30%;
+            padding: 0.3em 0;
+        }
+        .infobox-value {
+            display: table-cell;
+            vertical-align: top;
+            width: 70%;
+            padding: 0.3em 0;
+        }
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin: 1em 0;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+        table, th, td {
+            border: 1px solid var(--border-color);
+        }
+        th, td {
+            padding: 0.7em;
+        }
+        th {
+            background-color: var(--primary-color);
+            color: white;
+            text-align: left;
+        }
+        tr:nth-child(even) {
+            background-color: var(--light-bg);
+        }
+        footer {
+            background-color: var(--primary-color);
+            padding: 1.5em;
+            text-align: center;
+            color: white;
+            font-size: 0.9em;
+        }
+        footer a {
+            color: var(--secondary-color);
+            text-decoration: none;
+        }
+        .toc {
+            background-color: var(--light-bg);
+            border: 1px solid var(--border-color);
+            padding: 0.8em 1.2em;
+            display: inline-block;
+            margin-bottom: 1.5em;
+            border-radius: 3px;
+            
+            margin-left: 1.5em;
+            margin-bottom: 1.5em;
+        }
+        .toc-title {
+            font-weight: bold;
+            text-align: center;
+            color: var(--primary-color);
+            margin-bottom: 0.5em;
+            font-size: 1.1em;
+        }
+        .toc ul {
+            list-style: none;
+            padding-left: 0;
+            margin: 0.5em 0;
+        }
+        .toc li {
+            margin-bottom: 0.3em;
+            padding-left: 1.2em;
+            text-indent: -1.2em;
+        }
+        .toc li:before {
+            content: "•";
+            color: var(--secondary-color);
+            padding-right: 0.5em;
+        }
+        .toc a {
+            text-decoration: none;
+            color: var(--primary-color);
+            transition: color 0.2s;
+        }
+        .toc a:hover {
+            color: var(--secondary-color);
+        }
+        .highlight {
+            background-color: #fffde7;
+            padding: 0.2em 0.4em;
+            border-radius: 2px;
+        }
+        .btn {
+            display: inline-block;
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 0.5em 1em;
+            border-radius: 3px;
+            text-decoration: none;
+            margin: 0.3em 0;
+            transition: background-color 0.3s;
+        }
+        .btn:hover {
+            background-color: #2980b9;
+        }
+        .alert {
+            padding: 0.8em;
+            margin: 1em 0;
+            border-radius: 3px;
+            background-color: #e3f2fd;
+            border-left: 4px solid var(--secondary-color);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div>
+                <div class="logo">Info<span>MA</span></div>
+                <div class="tagline">Your Information Portal for Mathematics Olympiads</div>
+            </div>
+        </header>
+        <nav>
+            <ul>
+                <li><a href="#overview">Overview</a></li>
+                <li><a href="#structure">Exam Structure</a></li>
+                <li><a href="#syllabus">Syllabus</a></li>
+                <li><a href="#eligibility">Eligibility</a></li>
+                <li><a href="#awards">Awards</a></li>
+                <li><a href="#history">History</a></li>
+                <li><a href="#preparation">Preparation</a></li>
+            </ul>
+        </nav>
+        <div class="content">
+            <main>
+                <h1>SOF International Mathematics Olympiad (IMO)</h1>
+                
+                <div class="toc">
+                    <div class="toc-title">Contents</div>
+                    <ul>
+                        <li><a href="#overview">Overview</a></li>
+                        <li><a href="#structure">Exam Structure</a></li>
+                        <li><a href="#syllabus">Syllabus</a></li>
+                        <li><a href="#eligibility">Eligibility</a></li>
+                        <li><a href="#awards">Awards</a></li>
+                        <li><a href="#history">History</a></li>
+                        <li><a href="#preparation">Preparation</a></li>
+                        <li><a href="#references">References</a></li>
+                    </ul>
+                </div>
+                
+                <div class="alert">
+                    <strong>Registration Open:</strong> The 2023-24 SOF IMO registration is now open. Schools can register until September 30, 2023.
+                </div>
+                
+                <section id="overview">
+                    <h2>Overview</h2>
+                    <p>The <span class="highlight">SOF International Mathematics Olympiad (IMO)</span> is an annual mathematics competition organized by the Science Olympiad Foundation (SOF) for students in classes 1 to 12. It aims to identify and nurture mathematical talent among school students in India and abroad.</p>
+                    
+                    <p>The Olympiad is conducted at two levels: <strong>Level 1</strong> is conducted in the respective schools of participants during school hours, while <strong>Level 2</strong> is conducted for selected students from Level 1 at designated centers.</p>
+                    
+                    <p>The SOF IMO helps students test their understanding, level of knowledge, and power of reasoning. It provides a platform for students to compete with their peers at national and international levels.</p>
+                    
+                    <a href="https://www.sofworld.org/imo" class="btn">View Official Website</a>
+                </section>
+                
+                <section id="structure">
+                    <h2>Exam Structure</h2>
+                    <p>The SOF IMO exam consists of the following sections:</p>
+                    
+                    <table>
+                        <tr>
+                            <th>Class</th>
+                            <th>Section 1 (Logical Reasoning)</th>
+                            <th>Section 2 (Mathematical Reasoning)</th>
+                            <th>Section 3 (Everyday Mathematics)</th>
+                            <th>Section 4 (Achievers Section)</th>
+                            <th>Total Questions</th>
+                            <th>Total Marks</th>
+                        </tr>
+                        <tr>
+                            <td>1-4</td>
+                            <td>10 (10)</td>
+                            <td>10 (10)</td>
+                            <td>10 (10)</td>
+                            <td>5 (10)</td>
+                            <td>35</td>
+                            <td>40</td>
+                        </tr>
+                        <tr>
+                            <td>5-12</td>
+                            <td>15 (15)</td>
+                            <td>20 (20)</td>
+                            <td>10 (10)</td>
+                            <td>5 (15)</td>
+                            <td>50</td>
+                            <td>60</td>
+                        </tr>
+                    </table>
+                    
+                    <p>Numbers in parentheses indicate marks per section. The exam duration is 60 minutes for classes 1-4 and 60 minutes for classes 5-12.</p>
+                </section>
+                
+                <section id="syllabus">
+                    <h2>Syllabus</h2>
+                    <p>The syllabus for SOF IMO is based on the curriculum of CBSE, ICSE/ISC, and various state boards. The detailed syllabus varies by class:</p>
+                    
+                    <h3>Class 1-4</h3>
+                    <ul>
+                        <li>Numerals, number names, number sense</li>
+                        <li>Addition, subtraction, multiplication, division</li>
+                        <li>Time, calendar, money</li>
+                        <li>Measurement of length, weight, capacity</li>
+                        <li>Geometrical shapes</li>
+                        <li>Patterns</li>
+                    </ul>
+                    
+                    <h3>Class 5-10</h3>
+                    <ul>
+                        <li>Rational numbers, exponents, algebraic expressions</li>
+                        <li>Linear equations, quadratic equations</li>
+                        <li>Geometry (lines, angles, triangles, circles, quadrilaterals)</li>
+                        <li>Mensuration, statistics, probability</li>
+                        <li>Trigonometry (for higher classes)</li>
+                    </ul>
+                    
+                    <h3>Class 11-12</h3>
+                    <ul>
+                        <li>Sets, relations and functions</li>
+                        <li>Algebra, coordinate geometry</li>
+                        <li>Calculus, vectors, 3D geometry</li>
+                        <li>Linear programming, probability</li>
+                        <li>Mathematical reasoning</li>
+                    </ul>
+                    
+                   <p>Following the protocol of NEP (2020), NCF (2023), NCERT and CBSE guidelines, National and various State Boards for the convenience of schools and  students, any change/reduction in the syllabi will be reflected in actual question papers.</p>
+                    <li>Questions of level-I Olympiad exams will be 60% from the current class syllabus and 40% from the previous class syllabus, e.g. Class-7 IMO exam will have 60% questions from class-7 syllabus and 40% questions from class 6 syllabus.</li>
+                      <li>Questions of level-II Olympiad exams will be from current class syllabus only.</li>
+<li>Questions in ACHIEVERS SECTION will be from current class syllabus only.
+</li>
+
+
+
+                <section id="eligibility">
+                    <h2>Eligibility</h2>
+                    <p>Students from classes 1 to 12 from any recognized board (CBSE, ICSE, IB, State Board, etc.) are eligible to participate in the SOF IMO. There is no minimum marks requirement for participation.</p>
+                    
+                    <p>Schools need to register with SOF to enable their students to participate. Individual registrations are not accepted.</p>
+                    
+                    <h3>Level 2 Qualification</h3>
+                    <p>Top 5% of students class-wise who appear for the Level 1 exam qualify for Level 2. Additionally:</p>
+                    <ul>
+                        <li>Top 25 rank holders class-wise</li>
+                        <li>Class toppers from each participating school where at least 10 students participate and score 50% marks</li>
+                    </ul>
+                </section>
+                
+                <section id="awards">
+                    <h2>Awards</h2>
+                    <p>SOF provides various awards to recognize outstanding performance:</p>
+                    
+                    <h3>International Level</h3>
+                    <ul>
+                        <li><b>First Rank:</b> International Gold Medal + Certificate of Outstanding Performance + Cash Prize of ₹50,000</li>
+                        <li><b>Second Rank:</b> International Silver Medal + Certificate of Outstanding Performance + Cash Prize of ₹25,000</li>
+                        <li><b>Third Rank:</b> International Bronze Medal + Certificate of Outstanding Performance + Cash Prize of ₹10,000</li>
+                    </ul>
+                    
+                    <h3>Zonal Level</h3>
+                    <ul>
+                        <li>Zonal Gold, Silver, and Bronze medals with certificates</li>
+                        <li>Top 25% of candidates get certificates of merit</li>
+                        <li>Participation certificates for all participants</li>
+                    </ul>
+                    
+                    <p>Schools with outstanding performance receive trophies and certificates of appreciation.</p>
+                </section>
+                
+                <section id="history">
+                    <h2>History</h2>
+                    <p>The Science Olympiad Foundation was established in 1996 to promote science, mathematics, and computer education. The International Mathematics Olympiad was launched in 1998 and has since grown to become one of the most prestigious mathematics competitions for school students in India.</p>
+                    
+                    <p>Over the years, participation has grown from a few thousand students to over 5 million students annually from more than 50,000 schools across India and abroad.</p>
+                    
+                    <h3>Key Milestones</h3>
+                    <ul>
+                        <li><strong>1998:</strong> First SOF IMO conducted with 12,000 participants</li>
+                        <li><strong>2005:</strong> Introduced separate question papers for different classes</li>
+                        <li><strong>2012:</strong> Reached 1 million participants</li>
+                        <li><strong>2018:</strong> 20th anniversary edition with record participation</li>
+                        <li><strong>2022:</strong> First hybrid (online+offline) edition conducted</li>
+                    </ul>
+                </section>
+                
+                <section id="preparation">
+                    <h2>Preparation</h2>
+                    <p>SOF provides sample papers and previous years' question papers to help students prepare. Many schools conduct special classes for IMO preparation. Private coaching institutes also offer training programs specifically for Olympiad preparation.</p>
+                    
+                    <p>Recommended preparation strategies include:</p>
+                    <ul>
+                        <li>Thorough understanding of the school curriculum</li>
+                        <li>Practice with logical reasoning questions</li>
+                        <li>Solving previous years' Olympiad papers</li>
+                        <li>Time management practice</li>
+                        <li>Focus on conceptual understanding rather than rote learning</li>
+                        <li>practice more and more questions from imo workbook. </li>
+                    </ul>
+                    
+                    <h3>Recommended Books</h3>
+                    <ul>
+                        <li>SOF IMO Workbook (Class-wise)</li>
+                        <li>Mathematics Olympiad Talent Book</li>
+                        <li>Olympiad Excellence Guide</li>
+                        <li>Previous Years' Solved Papers</li>
+                          
+                    </ul>
+
+                    
+                    
+                <section id="references">
+                    <h2>References</h2>
+                    <ol>
+                        <li>Science Olympiad Foundation Official Website</li>
+                        <li>SOF IMO Information Brochure 2023-24</li>
+                        <li>Previous Years' Question Papers</li>
+                        <li>Mathematics Olympiad Handbook</li>
+                    </ol>
+                </section>
+            </main>
+            
+            <aside>
+                <div class="infobox">
+                    <div class="infobox-title">SOF International Mathematics Olympiad</div>
+                    <div class="infobox-image">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/IMO_logo.svg/200px-IMO_logo.svg.png" alt="IMO Logo">
+                    </div>
+                    <div class="infobox-data">
+                        <div class="infobox-label">Abbreviation</div>
+                        <div class="infobox-value">SOF IMO</div>
+                    </div>
+                    <div class="infobox-data">
+                        <div class="infobox-label">Formation</div>
+                        <div class="infobox-value">1998</div>
+                    </div>
+                    <div class="infobox-data">
+                        <div class="infobox-label">Type</div>
+                        <div class="infobox-value">Mathematics competition</div>
+                    </div>
+                    <div class="infobox-data">
+                        <div class="infobox-label">Location</div>
+                        <div class="infobox-value">International</div>
+                    </div>
+                    <div class="infobox-data">
+                        <div class="infobox-label">Official language</div>
+                        <div class="infobox-value">English</div>
+                    </div>
+                    <div class="infobox-data">
+                        <div class="infobox-label">Parent organization</div>
+                        <div class="infobox-value">Science Olympiad Foundation (SOF)</div>
+                    </div>
+                    <div class="infobox-data">
+                        <div class="infobox-label">Website</div>
+                        <div class="infobox-value"><a href="https://www.sofworld.org/imo" target="_blank">sofworld.org/imo</a></div>
+                    </div>
+                </div>
+                
+                <h3>Important Dates 2023-24</h3>
+                <ul>
+                    <li><strong>Registration Deadline:</strong> September 30, 2023</li>
+                    <li><strong>Level 1 Exam:</strong> December 7, 2023</li>
+                    <li><strong>Level 2 Exam:</strong> February 11, 2024</li>
+                    <li><strong>Result Declaration:</strong> March 2024</li>
+                </ul>
+                
+                <h3>Other SOF Olympiads</h3>
+                <ul>
+                    <li>National Science Olympiad (NSO)</li>
+                    <li>International English Olympiad (IEO)</li>
+                    <li>International General Knowledge Olympiad (IGKO)</li>
+                    <li>International Computer Science Olympiad (ICSO)</li>
+                    <li>International Commerce Olympiad (ICO)</li>
+                </ul>
+                
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="https://acrobat.adobe.com/id/urn:aaid:sc:AP:fc449718-bbde-4d4a-9975-b43890e136ec">Sample Papers</a></li>
+               
+                   
+         
+                    <li><a href="https://sofworld.org/contact#">Contact Details</a></li>
+                </ul>
+            </aside>
+        </div>
+        <footer>
+            <p>© 2023 InfoMA - Information Mathematics Arena | <a href="#">About Us</a> | <a href="#">Contact</a> | <a href="#">Privacy Policy</a></p>
+            <p>This page was last updated on June 15, 2023</p>
+        </footer>
+    </div>
+</body>
+</html>
